@@ -1,0 +1,4 @@
+include ':lab2'
+include ':lab1'
+include ':app'
+rootProject.name = "spbstu-android-labs"
