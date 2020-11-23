@@ -1,19 +1,46 @@
 package ru.spbstu.lab2
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.util.Log
-import android.view.View
-import android.view.ViewGroup
-import java.util.logging.Logger
+import android.view.KeyEvent
+import androidx.appcompat.app.AppCompatActivity
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        log("onCreate()")
         setContentView(R.layout.activity_main)
+
+        var volume = savedInstanceState?.getInt(PARAM_VOLUME) ?: 0
+        btn_inc.setOnKeyListener { _, keyCode, _ ->
+            return@setOnKeyListener when (keyCode) {
+                KeyEvent.KEYCODE_DPAD_CENTER -> updateVolume(++volume)
+                else -> false
+            }
+        }
+        btn_dec.setOnKeyListener { _, keyCode, _ ->
+            return@setOnKeyListener when (keyCode) {
+                KeyEvent.KEYCODE_DPAD_CENTER -> updateVolume(--volume)
+                else -> false
+            }
+        }
+        sb_volume.setOnKeyListener { _, keyCode, _ ->
+            return@setOnKeyListener when (keyCode) {
+                KeyEvent.KEYCODE_DPAD_LEFT -> updateVolume(--volume)
+                KeyEvent.KEYCODE_DPAD_RIGHT -> updateVolume(++volume)
+                else -> false
+            }
+        }
+    }
+
+    private fun updateVolume(count: Int): Boolean {
+        if (count in 0..100) {
+            tv_count.text = count.toString()
+            sb_volume.progress = count
+        }
+        return true
     }
 
     override fun onRestart() {
@@ -71,5 +98,9 @@ class MainActivity : AppCompatActivity() {
 
     private fun log(message: String) {
         Log.d("LIFECYCLE_TAG", message)
+    }
+
+    companion object {
+        private const val PARAM_VOLUME = "volume"
     }
 }
