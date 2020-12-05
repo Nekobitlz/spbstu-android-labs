@@ -26,23 +26,12 @@ class Activity2 : AppCompatActivity() {
         }
         toThirdButton.setOnClickListener {
             val intent = Intent(this, Activity3::class.java)
-            startActivityForResult(intent, SECOND_ACTIVITY_REQUEST_CODE)
+            startActivity(intent)
         }
         navigationView.setNavigationItemSelectedListener {
             val intent = Intent(this, AboutActivity::class.java)
             startActivity(intent)
             return@setNavigationItemSelectedListener true
         }
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == SECOND_ACTIVITY_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
-            finish()
-        }
-    }
-
-    companion object {
-        private const val SECOND_ACTIVITY_REQUEST_CODE = 1234
     }
 }

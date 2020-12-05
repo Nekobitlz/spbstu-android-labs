@@ -22,15 +22,15 @@ class Activity3 : AppCompatActivity() {
         navigationView = findViewById(R.id.nav_view)
 
         toFirstButton.setOnClickListener {
-            setResult(Activity.RESULT_OK)
-            finish()
+            val intent = Intent(this, Activity1::class.java)
+            startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
         }
         toSecondButton.setOnClickListener {
             finish()
         }
         navigationView.setNavigationItemSelectedListener {
             val intent = Intent(this, AboutActivity::class.java)
-            startActivity(intent)
+            startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY))
             return@setNavigationItemSelectedListener true
         }
     }
