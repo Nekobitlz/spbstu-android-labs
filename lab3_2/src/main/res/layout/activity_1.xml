@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".Activity1">
+    tools:context=".Fragment1">
 
     <FrameLayout
         android:layout_width="match_parent"

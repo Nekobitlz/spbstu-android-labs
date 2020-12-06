@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_graph"
+    app:startDestination="@id/fragment1">
+
+    <fragment
+        android:id="@+id/fragment1"
+        android:name="ru.spbstu.lab3_2.Fragment1"
+        android:label="Fragment1">
+        <action
+            android:id="@+id/action_fragment1_to_fragment2"
+            app:destination="@id/fragment2" />
+        <action
+            android:id="@+id/action_fragment1_to_aboutFragment"
+            app:destination="@id/aboutFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment2"
+        android:name="ru.spbstu.lab3_2.Fragment2"
+        android:label="activity_2"
+        tools:layout="@layout/activity_2">
+        <action
+            android:id="@+id/action_fragment2_to_fragment3"
+            app:destination="@id/fragment3" />
+        <action
+            android:id="@+id/action_fragment2_to_fragment1"
+            app:popUpTo="@id/fragment1" />
+        <action
+            android:id="@+id/action_fragment2_to_aboutFragment"
+            app:destination="@id/aboutFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment3"
+        android:name="ru.spbstu.lab3_2.Fragment3"
+        android:label="Fragment3">
+        <action
+            android:id="@+id/action_fragment3_to_fragment1"
+            app:popUpTo="@id/fragment1" />
+        <action
+            android:id="@+id/action_fragment3_to_fragment2"
+            app:popUpTo="@id/fragment2" />
+        <action
+            android:id="@+id/action_fragment3_to_aboutFragment"
+            app:destination="@id/aboutFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="ru.spbstu.lab3_2.AboutFragment"
+        android:label="activity_about"
+        tools:layout="@layout/activity_about" />
+
+</navigation>
