@@ -4,13 +4,12 @@ import android.util.Log
 import android.view.Gravity
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
-import androidx.test.espresso.action.ViewActions.pressBack
 import androidx.test.espresso.assertion.ViewAssertions.matches
-import androidx.test.espresso.contrib.DrawerActions.close
 import androidx.test.espresso.contrib.DrawerActions.open
 import androidx.test.espresso.contrib.DrawerMatchers.isClosed
 import androidx.test.espresso.contrib.DrawerMatchers.isOpen
 import androidx.test.espresso.contrib.NavigationViewActions.navigateTo
+import androidx.test.espresso.matcher.ViewMatchers.isRoot
 import androidx.test.espresso.matcher.ViewMatchers.withId
 
 abstract class BaseScreen<T : BaseScreen<T>> {
@@ -19,7 +18,7 @@ abstract class BaseScreen<T : BaseScreen<T>> {
         validate()
     }
 
-    abstract fun validate()
+    protected abstract fun validate()
 
     fun openDrawer(): T {
         onView(withId(R.id.drawer))
@@ -48,6 +47,12 @@ abstract class BaseScreen<T : BaseScreen<T>> {
     fun clickToThirdButton(): ThirdScreen {
         onView(withId(R.id.btn_to_third)).perform(click())
         return ThirdScreen()
+    }
+
+    fun rotate(): T {
+        onView(isRoot()).perform(ChangeOrientationAction())
+        validate()
+        return this as T
     }
 
     protected fun log(text: String) {
