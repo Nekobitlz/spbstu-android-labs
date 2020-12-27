@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">lab3_2</string>
+    <string name="about_title">This is About activity</string>
+    <string name="to_first">to first</string>
+    <string name="to_second">to second</string>
+    <string name="to_third">to third</string>
 </resources>

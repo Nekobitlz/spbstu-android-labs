@@ -5,13 +5,13 @@ import android.os.PersistableBundle
 import android.util.Log
 import android.view.KeyEvent
 import androidx.appcompat.app.AppCompatActivity
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_main_lab2.*
 
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_main_lab2)
 
         var volume = savedInstanceState?.getInt(PARAM_VOLUME) ?: 0
         btn_inc.setOnKeyListener { _, keyCode, _ ->

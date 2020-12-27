@@ -7,11 +7,9 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.google.android.material.navigation.NavigationView
 
 class Fragment1 : Fragment() {
 
-    private lateinit var navigationView: NavigationView
     private lateinit var toSecondButton: Button
 
     override fun onCreateView(
@@ -22,14 +20,8 @@ class Fragment1 : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         toSecondButton = view.findViewById(R.id.btn_to_second)
-        navigationView = view.findViewById(R.id.nav_view)
-
         toSecondButton.setOnClickListener {
             findNavController().navigate(R.id.action_fragment1_to_fragment2)
-        }
-        navigationView.setNavigationItemSelectedListener {
-            findNavController().navigate(R.id.action_fragment1_to_aboutActivity)
-            return@setNavigationItemSelectedListener true
         }
     }
 }

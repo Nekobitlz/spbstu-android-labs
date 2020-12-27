@@ -25,7 +25,7 @@ class ETestActivitySavedState {
     fun testActivitySavedState() {
         val text = RandomStringUtils.randomAlphabetic(8)
 
-        Log.i(javaClass.simpleName, "Trying to type text")
+        log("Trying to type text")
         onView(
             allOf(withId(R.id.edit_text), isDisplayed())
         ).perform(
@@ -35,9 +35,9 @@ class ETestActivitySavedState {
         ).check(
             matches(withText(text))
         )
-        Log.i(javaClass.simpleName, "Text typed successfully")
+        log("Text typed successfully")
 
-        Log.i(javaClass.simpleName, "Trying to click a button")
+        log("Trying to click a button")
         onView(
             allOf(withId(R.id.button), isDisplayed())
         ).check(
@@ -47,9 +47,9 @@ class ETestActivitySavedState {
         ).check(
             matches(withText(R.string.button_text_pressed))
         )
-        Log.i(javaClass.simpleName, "Button is successfully clicked")
+        log("Button is successfully clicked")
 
-        Log.i(javaClass.simpleName, "Rotate screen")
+        log("Trying to rotate screen")
         activityRule.scenario.onActivity { activity ->
             val currentOrientation = activity.resources.configuration.orientation
             val newOrientation = if (currentOrientation == Configuration.ORIENTATION_PORTRAIT) {
@@ -59,22 +59,26 @@ class ETestActivitySavedState {
             }
             activity.requestedOrientation = newOrientation
         }
-        Log.i(javaClass.simpleName, "Screen is successfully rotated")
+        log("Screen is successfully rotated")
 
-        Log.i(javaClass.simpleName, "Check typed text is saved")
+        log("Check typed text is saved")
         onView(
             allOf(withId(R.id.edit_text), isDisplayed())
         ).check(
             matches(withText(text))
         )
-        Log.i(javaClass.simpleName, "Typed text is saved")
+        log("Typed text is saved")
 
-        Log.i(javaClass.simpleName, "Check button text")
+        log("Check button text")
         onView(
             allOf(withId(R.id.button), isDisplayed())
         ).check(
             matches(withText(R.string.button_text))
         )
-        Log.i(javaClass.simpleName, "Button text is correct")
+        log("Button text is correct")
+    }
+
+    private fun log(text: String) {
+        Log.i(javaClass.simpleName, text)
     }
 }

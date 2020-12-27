@@ -13,15 +13,12 @@
         <action
             android:id="@+id/action_fragment1_to_fragment2"
             app:destination="@id/fragment2" />
-        <action
-            android:id="@+id/action_fragment1_to_aboutActivity"
-            app:destination="@id/aboutActivity" />
     </fragment>
 
     <fragment
         android:id="@+id/fragment2"
         android:name="ru.spbstu.lab3_2.Fragment2"
-        android:label="activity_2"
+        android:label="Fragment2"
         tools:layout="@layout/activity_2">
         <action
             android:id="@+id/action_fragment2_to_fragment3"
@@ -29,9 +26,6 @@
         <action
             android:id="@+id/action_fragment2_to_fragment1"
             app:popUpTo="@id/fragment1" />
-        <action
-            android:id="@+id/action_fragment2_to_aboutActivity"
-            app:destination="@id/aboutActivity" />
     </fragment>
 
     <fragment
@@ -45,15 +39,13 @@
         <action
             android:id="@+id/action_fragment3_to_fragment2"
             app:popUpTo="@id/fragment2" />
-        <action
-            android:id="@+id/action_fragment3_to_aboutActivity"
-            app:destination="@id/aboutActivity" />
     </fragment>
 
     <activity
-        android:id="@+id/aboutActivity"
+        android:id="@+id/open_about_screen"
         android:name="ru.spbstu.lab3_2.AboutActivity"
-        android:label="activity_about"
+        android:label="AboutActivity"
+        app:action="@id/open_about_screen"
         tools:layout="@layout/activity_about" />
 
 </navigation>

@@ -6,10 +6,11 @@
     tools:context=".AboutActivity">
 
     <TextView
+        android:id="@+id/tv_about_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:gravity="center"
-        android:text="This is About activity"
+        android:text="@string/about_title"
         android:textSize="17sp" />
 </FrameLayout>
