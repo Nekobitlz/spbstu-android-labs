@@ -45,6 +45,7 @@ dependencies {
     implementation 'com.trello.rxlifecycle4:rxlifecycle-android:4.0.2'
     implementation 'com.trello.rxlifecycle4:rxlifecycle-kotlin:4.0.2'
     implementation 'com.trello.rxlifecycle4:rxlifecycle-android-lifecycle-kotlin:4.0.2'
+    implementation 'com.facebook.fresco:fresco:2.3.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
