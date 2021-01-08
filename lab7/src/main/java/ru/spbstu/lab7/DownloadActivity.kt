@@ -22,7 +22,7 @@ class DownloadActivity : AppCompatActivity() {
         imageView = findViewById(R.id.iv_image)
         buttonLoad = findViewById(R.id.btn_load)
         buttonLoad.setOnClickListener {
-            if (isPermissionGranted()) {
+            if (permissionIsNotGranted()) {
                 ActivityCompat.requestPermissions(
                     this,
                     arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE),
@@ -48,7 +48,7 @@ class DownloadActivity : AppCompatActivity() {
         }
     }
 
-    private fun isPermissionGranted(): Boolean = ContextCompat.checkSelfPermission(
+    private fun permissionIsNotGranted(): Boolean = ContextCompat.checkSelfPermission(
         this, Manifest.permission.WRITE_EXTERNAL_STORAGE
     ) != PackageManager.PERMISSION_GRANTED
 

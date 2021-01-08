@@ -19,6 +19,8 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.launch
+import ru.spbstu.lab7.Consts.EXTRA_DOWNLOAD_RESULT
+import ru.spbstu.lab7.Consts.EXTRA_IMAGE_PATH
 import java.io.IOException
 import java.net.URL
 
@@ -115,8 +117,6 @@ class DownloadService : Service() {
 
     companion object {
         const val EXTRA_URL = "extra_url"
-        const val EXTRA_DOWNLOAD_RESULT = "extra_download_result"
-        const val EXTRA_IMAGE_PATH = "extra_download_path"
         private const val CHANNEL_ID = "download_channel"
         private const val CHANNEL_NAME = "Downloading Status"
         private const val NOTIFICATION_ID = 1
